@@ -28,17 +28,25 @@ public class EnanoTests {
 		Assert.assertEquals(100, enano.salud());
 		for(int i=0; i<6; i++) {
 			orco.atacar(enano);
-		}
-		Assert.assertEquals(10, enano.salud()); // 10 = 100 - 15 * 6
-
-		enano.descansar();
+		}										// 10 = 100 - 15 * 6
+		Assert.assertEquals(10, enano.salud()); 
+		enano.descansar();						// Salud Enano: += 25 ptos
 		Assert.assertEquals(35, enano.salud());
-		enano.descansar();
+		enano.descansar();						// Salud Enano: += 25 ptos
 		Assert.assertEquals(60, enano.salud());
-		enano.descansar();
+		enano.descansar();						// Salud Enano: += 25 ptos
 		Assert.assertEquals(85, enano.salud());
-		enano.descansar();
+		enano.descansar();						// Salud Enano 100%
 		Assert.assertEquals(100, enano.salud());
+		for(int i=0; i<10; i++) {
+			orco.atacar(enano);
+		}										// Enano asesinado :(			
+		Assert.assertEquals(0, enano.salud());
+		enano.atacar(orco);						// Enano asesinado. No ataca.
+		Assert.assertEquals(100, orco.salud());
+		enano.descansar();						// Enano asesinado. No revive descansando.
+		Assert.assertEquals(0, enano.salud());
+		
 	}
 	
 	@Test
@@ -65,7 +73,6 @@ public class EnanoTests {
 			humano.atacar(enano);
 		}
 		Assert.assertEquals(55, enano.salud()); // 55 = 100 -10 -9 -8 -7 -6 -5 
-
 		enano.descansar();
 		Assert.assertEquals(80, enano.salud()); // 80 = 55 + 25
 		enano.descansar();
