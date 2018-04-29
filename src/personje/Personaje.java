@@ -30,7 +30,7 @@ public abstract class Personaje {
 	public abstract void vivo_descansar();
 	
 	private boolean estaVivo() {
-		return salud != 0;
+		return salud > 0;
 	}
 	
 	
