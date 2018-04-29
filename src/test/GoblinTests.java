@@ -30,7 +30,7 @@ public class GoblinTests {
 		Assert.assertEquals(100, goblin.salud()); 
 		for(int i = 0; i < 10; i++)
 			elfo.atacar(goblin);				// Salud:  100 - 5 * Azar
-		System.out.println(goblin.salud());
+//		System.out.println(goblin.salud());
 		Assert.assertEquals(95, goblin.salud());
 		goblin.descansar();						// Salud 100% (100 ptos)
 		Assert.assertEquals(100, goblin.salud());

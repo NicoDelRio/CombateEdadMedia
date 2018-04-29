@@ -13,15 +13,13 @@ public class Goblin extends Personaje {
 	}
 	
 	@Override
-	public void atacar(Personaje Atacado) {
-		if(salud == 0)
-			return;
-		Atacado.sufreAtaque(fuerza);
+	public void vivo_atacar(Personaje Atacado) {
+		Atacado.vivo_sufreAtaque(fuerza);
 		
 	}
 
 	@Override
-	protected void sufreAtaque(int fuerzaAtacante) {
+	protected void vivo_sufreAtaque(int fuerzaAtacante) {
 		if(MyRandom.random(1,10) == 1) {
 			if(salud - fuerzaAtacante < 0) {
 				salud = 0;
@@ -33,9 +31,7 @@ public class Goblin extends Personaje {
 	}
 
 	@Override
-	public void descansar() {
-		if(salud == 0)
-			return;
+	public void vivo_descansar() {
 		salud = SALUD_INICIAL;
 		
 	}

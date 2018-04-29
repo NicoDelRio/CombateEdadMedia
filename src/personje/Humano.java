@@ -12,16 +12,14 @@ public class Humano extends Personaje {
 	}
 	
 	@Override
-	public void atacar(Personaje Atacado) {
-		if(salud == 0)
-			return;
-		Atacado.sufreAtaque(fuerza);
+	public void vivo_atacar(Personaje Atacado) {
+		Atacado.vivo_sufreAtaque(fuerza);
 		fuerza -= 1;
 		
 	}
 
 	@Override
-	protected void sufreAtaque(int fuerzaAtacante) {
+	protected void vivo_sufreAtaque(int fuerzaAtacante) {
 		if(salud - fuerzaAtacante < 0) {
 			salud = 0;
 			return;
@@ -32,9 +30,7 @@ public class Humano extends Personaje {
 	}
 
 	@Override
-	public void descansar() {
-		if(salud == 0)
-			return;
+	public void vivo_descansar() {
 		fuerza = FUERZA_INICIAL;
 		
 	}

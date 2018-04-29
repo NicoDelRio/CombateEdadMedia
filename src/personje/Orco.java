@@ -11,15 +11,13 @@ public class Orco extends Personaje {
 	}
 
 	@Override
-	public void atacar(Personaje Atacado) {
-		if(salud == 0)
-			return;
-		Atacado.sufreAtaque(fuerza);
+	public void vivo_atacar(Personaje Atacado) {
+		Atacado.vivo_sufreAtaque(fuerza);
 		
 	}
 
 	@Override
-	protected void sufreAtaque(int fuerzaAtacante) {
+	protected void vivo_sufreAtaque(int fuerzaAtacante) {
 		if(salud - (fuerzaAtacante / 4) < 0) {
 			salud = 0;
 			return;
@@ -29,7 +27,7 @@ public class Orco extends Personaje {
 	}
 
 	@Override
-	public void descansar() {
+	public void vivo_descansar() {
 		// No le sirve de nada descansar
 		
 	}

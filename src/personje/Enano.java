@@ -12,16 +12,14 @@ public class Enano extends Personaje {
 	}
 
 	@Override
-	public void atacar(Personaje Atacado) {
-		if(salud == 0)
-			return;
+	public void vivo_atacar(Personaje Atacado) {
 		Atacado.sufreAtaque(fuerza);
 		fuerza += 2;
 		
 	}
 	
 	@Override
-	protected void sufreAtaque(int fuerzaAtacante) {
+	protected void vivo_sufreAtaque(int fuerzaAtacante) {
 		if(salud - fuerzaAtacante < 0) {
 			salud = 0;
 			return;
@@ -31,9 +29,7 @@ public class Enano extends Personaje {
 	}
 
 	@Override
-	public void descansar() {
-		if(salud == 0)
-			return;
+	public void vivo_descansar() {
 		if (salud < SALUD_INICIAL * 0.75) {
 			salud += SALUD_INICIAL * 0.25;
 		} else {
